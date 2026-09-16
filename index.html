@@ -1,0 +1,361 @@
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>SAAD_HUB — Premium Perfumes, Watches & Accessories</title>
+<meta name="description" content="Shop premium perfumes, watches, bracelets, wallets and accessories from SAAD_HUB. Order easily through WhatsApp with delivery across Pakistan.">
+<meta property="og:title" content="SAAD_HUB — Premium Perfumes, Watches & Accessories">
+<meta property="og:description" content="Shop premium perfumes, watches, bracelets, wallets and accessories from SAAD_HUB. Order easily through WhatsApp with delivery across Pakistan.">
+<meta property="og:type" content="website">
+<link rel="shortcut icon" href="android-chrome-192x192.png" type="image/x-icon">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,300;0,400;0,500;0,600;0,700;1,400&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<!-- ============ CUSTOM CURSOR ============ -->
+<div class="cursor-dot" aria-hidden="true"></div>
+<div class="cursor-ring" aria-hidden="true"></div>
+
+<!-- ============ NOTIFICATIONS ============ -->
+<div class="notify-wrap" id="notifyWrap"></div>
+
+<!-- ============ TOP MARQUEE ============ -->
+<div class="marquee-bar" aria-hidden="true">
+  <div class="marquee-track" id="marqueeTrack"></div>
+</div>
+
+<!-- ============ NAVBAR ============ -->
+<header class="navbar">
+  <div class="container navbar-row">
+    <nav class="nav-social" aria-label="Social links">
+      <a href="https://www.instagram.com/saadhub.pk" target="_blank" rel="noopener" aria-label="SAAD_HUB on Instagram"><i class="fa-brands fa-instagram"></i></a>
+      <a href="https://www.tiktok.com/@saadhub.pk" target="_blank" rel="noopener" aria-label="SAAD_HUB on TikTok"><i class="fa-brands fa-tiktok"></i></a>
+      <a href="https://wa.me/923245483848" target="_blank" rel="noopener" aria-label="Message SAAD_HUB on WhatsApp"><i class="fa-brands fa-whatsapp"></i></a>
+    </nav>
+
+    <a href="#home" class="nav-logo">SAAD<span>_HUB</span></a>
+
+    <div class="nav-actions">
+      <button id="searchBtn" aria-label="Open search"><i class="fa-solid fa-magnifying-glass"></i></button>
+      <button id="wishlistBtn" aria-label="Open wishlist">
+        <i class="fa-regular fa-heart"></i>
+        <span class="badge" id="wishBadge" style="display:none;">0</span>
+      </button>
+      <button id="cartBtn" aria-label="Open cart">
+        <i class="fa-solid fa-bag-shopping"></i>
+        <span class="badge" id="cartBadge" style="display:none;">0</span>
+      </button>
+      <button class="hamburger" id="hamburgerBtn" aria-label="Open menu"><i class="fa-solid fa-bars"></i></button>
+    </div>
+  </div>
+
+  <div class="subnav">
+    <div class="container subnav-row">
+      <a href="#home">Home</a>
+      <a href="#perfumes">Perfumes</a>
+      <a href="#watches">Watches</a>
+      <a href="#bracelets">Bracelets</a>
+      <a href="#wallets">Wallets</a>
+      <a href="#accessories">Accessories</a>
+      <a href="#new-arrivals">New Arrivals</a>
+      <a href="#contact">Contact</a>
+    </div>
+  </div>
+</header>
+
+<!-- ============ MOBILE MENU ============ -->
+<div class="mobile-menu" id="mobileMenu" role="dialog" aria-modal="true" aria-label="Mobile navigation">
+  <div class="mobile-menu-top"><button id="closeMobileMenu" aria-label="Close menu"><i class="fa-solid fa-xmark"></i></button></div>
+  <nav class="mobile-menu-links" data-mobile-link>
+    <a href="#home">Home</a>
+    <a href="#perfumes">Perfumes</a>
+    <a href="#watches">Watches</a>
+    <a href="#bracelets">Bracelets</a>
+    <a href="#wallets">Wallets</a>
+    <a href="#accessories">Accessories</a>
+    <a href="#new-arrivals">New Arrivals</a>
+    <a href="#contact">Contact</a>
+  </nav>
+  <div class="mobile-menu-social">
+    <a href="https://www.instagram.com/saadhub.pk" target="_blank" rel="noopener" aria-label="Instagram"><i class="fa-brands fa-instagram"></i></a>
+    <a href="https://www.tiktok.com/@saadhub.pk" target="_blank" rel="noopener" aria-label="TikTok"><i class="fa-brands fa-tiktok"></i></a>
+    <a href="https://wa.me/923245483848" target="_blank" rel="noopener" aria-label="WhatsApp"><i class="fa-brands fa-whatsapp"></i></a>
+  </div>
+</div>
+
+<!-- ============ SEARCH PANEL ============ -->
+<div class="search-panel" id="searchPanel">
+  <div class="container">
+    <div class="search-panel-top">
+      <i class="fa-solid fa-magnifying-glass" aria-hidden="true"></i>
+      <input type="text" id="searchInput" placeholder="Search perfumes, watches, bracelets, wallets…" aria-label="Search products">
+      <button id="closeSearch" aria-label="Close search"><i class="fa-solid fa-xmark"></i></button>
+    </div>
+    <p class="search-hint" id="searchHint">Try “oud”, “watch”, “bracelet” or “wallet”.</p>
+    <div class="search-results" id="searchResults"></div>
+  </div>
+</div>
+
+<!-- ============ WISHLIST PANEL ============ -->
+<div class="side-panel" id="wishlistPanel" role="dialog" aria-modal="true" aria-label="Wishlist">
+  <div class="side-panel-head">
+    <h3>Wishlist</h3>
+    <button id="closeWishlist" aria-label="Close wishlist"><i class="fa-solid fa-xmark"></i></button>
+  </div>
+  <div class="side-panel-body" id="wishlistBody"></div>
+</div>
+
+<!-- ============ CART DRAWER ============ -->
+<div class="side-panel" id="cartPanel" role="dialog" aria-modal="true" aria-label="Shopping cart">
+  <div class="side-panel-head">
+    <h3>Your Cart</h3>
+    <button id="closeCart" aria-label="Close cart"><i class="fa-solid fa-xmark"></i></button>
+  </div>
+  <div class="side-panel-body" id="cartBody"></div>
+  <div class="side-panel-foot" id="cartFoot" style="display:none;">
+    <div class="subtotal-row"><span>Subtotal</span><span id="cartSubtotal">Rs. 0</span></div>
+    <button class="btn-mini ghost" id="orderCartBtn">Order via WhatsApp</button>
+    <button class="btn-mini solid" id="clearCartBtn">Empty Cart</button>
+  </div>
+</div>
+
+<!-- ============ OVERLAY ============ -->
+<div class="overlay" id="overlay"></div>
+
+<!-- ============ QUICK VIEW MODAL ============ -->
+<div class="modal" id="quickViewModal" role="dialog" aria-modal="true" aria-label="Product quick view">
+  <div class="modal-box">
+    <button class="modal-close" id="closeQuickView" aria-label="Close quick view"><i class="fa-solid fa-xmark"></i></button>
+    <div class="modal-img"><img id="qvImage" src="" alt=""></div>
+    <div class="modal-info">
+      <span class="p-cat" id="qvCat"></span>
+      <h2 id="qvName"></h2>
+      <span class="m-price" id="qvPrice"></span>
+      <p class="m-desc" id="qvDesc"></p>
+      <div class="modal-notes" id="qvNotes" style="display:none;"></div>
+      <div class="qty-select">
+        <button id="qvMinus" aria-label="Decrease quantity">−</button>
+        <span id="qvQty">1</span>
+        <button id="qvPlus" aria-label="Increase quantity">+</button>
+      </div>
+      <div class="modal-actions">
+        <button class="icon-btn" id="qvWishBtn" aria-label="Add to wishlist"><i class="fa-regular fa-heart"></i></button>
+        <button class="btn-mini solid" id="qvAddCart">Add to Cart</button>
+        <button class="btn-mini ghost" id="qvOrderNow">Order Now</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ============ ORDER FORM MODAL ============ -->
+<div class="modal order-modal" id="orderModal" role="dialog" aria-modal="true" aria-label="Order form">
+  <div class="modal-box">
+    <button class="modal-close" id="closeOrderModal" aria-label="Close order form"><i class="fa-solid fa-xmark"></i></button>
+    <h2>Complete Your Order</h2>
+    <p class="sub">Fill in your details — your order will be sent to SAAD_HUB on WhatsApp.</p>
+    <div class="order-summary" id="orderSummary"></div>
+    <form id="orderForm">
+      <div class="form-row"><label for="ofName">Full Name</label><input type="text" id="ofName" required></div>
+      <div class="form-grid-2">
+        <div class="form-row"><label for="ofPhone">Phone Number</label><input type="tel" id="ofPhone" required></div>
+        <div class="form-row"><label for="ofCity">City</label><input type="text" id="ofCity" required></div>
+      </div>
+      <div class="form-row"><label for="ofAddress">Complete Address</label><input type="text" id="ofAddress" required></div>
+      <div class="form-row"><label for="ofNote">Additional Note (optional)</label><textarea id="ofNote"></textarea></div>
+      <button type="submit" class="btn-mini ghost"><i class="fa-brands fa-whatsapp"></i>&nbsp; Send Order on WhatsApp</button>
+    </form>
+  </div>
+</div>
+
+<!-- ============ MAIN ============ -->
+<main id="home">
+
+  <!-- HERO -->
+  <section class="hero" id="heroSlider" aria-roledescription="carousel" aria-label="Featured collections"></section>
+
+  <!-- SHOP BY CATEGORY -->
+  <section class="section">
+    <div class="container">
+      <div class="section-head center">
+        <span class="eyebrow">Explore</span>
+        <h2 class="reveal">Shop by Category</h2>
+      </div>
+      <div class="category-grid" id="categoryGrid"></div>
+    </div>
+  </section>
+
+  <!-- PERFUMES -->
+  <section class="section alt" id="perfumes">
+    <div class="container">
+      <div class="section-head">
+        <span class="eyebrow">Fragrance House</span>
+        <h2 class="reveal">SAAD_HUB Perfumes</h2>
+        <p>Signature fragrances crafted for unforgettable impressions.</p>
+      </div>
+      <div class="product-grid" id="perfumeGrid"></div>
+    </div>
+  </section>
+
+  <!-- WATCHES -->
+  <section class="section" id="watches">
+    <div class="container">
+      <div class="section-head">
+        <span class="eyebrow">Timepieces</span>
+        <h2 class="reveal">SAAD_HUB Watches</h2>
+        <p>Precision-built watches designed for the modern man.</p>
+      </div>
+      <div class="product-grid" id="watchGrid"></div>
+    </div>
+  </section>
+
+  <!-- ACCESSORIES -->
+  <section class="section alt" id="accessories">
+    <div class="container">
+      <div class="section-head">
+        <span class="eyebrow">Everyday Carry</span>
+        <h2 class="reveal">SAAD_HUB Accessories</h2>
+        <p>Bracelets and wallets built with premium materials and clean detailing.</p>
+      </div>
+
+      <div class="accessories-sub" id="bracelets">
+        <h3>Bracelets</h3>
+        <p class="sub-copy">20 designs in leather, steel and beaded finishes.</p>
+        <div class="product-grid" id="braceletGrid"></div>
+      </div>
+
+      <div class="accessories-sub" id="wallets">
+        <h3>Men's Wallets</h3>
+        <p class="sub-copy">Slim, durable leather wallets built for daily use.</p>
+        <div class="product-grid" id="walletGrid"></div>
+      </div>
+    </div>
+  </section>
+
+  <div id="new-arrivals"></div>
+
+  <!-- WHATSAPP CHANNEL BANNER -->
+  <section class="wa-banner">
+    <div class="wa-banner-bg" aria-hidden="true"></div>
+    <div class="container wa-banner-inner">
+      <i class="fa-brands fa-whatsapp" aria-hidden="true"></i>
+      <h2>Follow Our WhatsApp Channel</h2>
+      <p>Join our WhatsApp Channel for new arrivals, exclusive offers, product updates and more.</p>
+      <a class="btn btn-light" href="https://whatsapp.com/channel/0029Vb8tyOnCcW4iuVj7ue3g" target="_blank" rel="noopener">Follow Now</a>
+    </div>
+  </section>
+
+  <!-- STATS -->
+  <section class="section" style="padding-bottom:0;">
+    <div class="container">
+      <div class="section-head center">
+        <span class="eyebrow">Trusted Across Pakistan</span>
+        <h2 class="reveal">Why SAAD_HUB</h2>
+      </div>
+    </div>
+    <div class="stats-grid">
+      <div class="stat-card"><div class="num" data-count="1000" data-suffix="+">0</div><div class="label">Happy Customers</div></div>
+      <div class="stat-card"><div class="num" data-count="2000" data-suffix="+">0</div><div class="label">Products Sold</div></div>
+      <div class="stat-card"><div class="num-static">All Pakistan</div><div class="label">Delivery</div></div>
+      <div class="stat-card"><div class="num" data-count="100" data-suffix="%">0</div><div class="label">Customer Satisfaction</div></div>
+    </div>
+  </section>
+
+  <!-- ABOUT -->
+  <section class="section" id="contact">
+    <div class="container about-grid">
+      <div class="about-img reveal">
+        <img src="sh.jfif" alt="Inside the SAAD_HUB studio" loading="lazy" onerror="this.src=placeholderImg('SAAD_HUB','about',600,750)">
+      </div>
+      <div class="about-text reveal">
+        <span class="eyebrow">Our Story</span>
+        <h2>The SAAD_HUB Experience</h2>
+        <p>SAAD_HUB brings together premium fragrances, watches and men's accessories in one place, focusing on stylish products, convenient ordering and delivery across Pakistan.</p>
+        <p>Have a question before you order? Reach us directly on WhatsApp or email and we'll help you pick the right piece.</p>
+        <a class="btn btn-dark" href="https://wa.me/923245483848" target="_blank" rel="noopener">Chat With Us</a>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<!-- ============ FOOTER ============ -->
+<footer>
+  <div class="container">
+    <div class="footer-grid">
+      <div class="footer-col">
+        <div class="footer-logo">SAAD<span style="color:var(--c-gold);font-weight:300;">_HUB</span></div>
+        <p>Premium fragrances, watches, wallets, bracelets and men's accessories — ordered easily, delivered across Pakistan.</p>
+        <div class="footer-social">
+          <a href="https://www.instagram.com/saadhub.pk" target="_blank" rel="noopener" aria-label="Instagram"><i class="fa-brands fa-instagram"></i></a>
+          <a href="https://www.tiktok.com/@saadhub.pk" target="_blank" rel="noopener" aria-label="TikTok"><i class="fa-brands fa-tiktok"></i></a>
+          <a href="https://wa.me/923245483848" target="_blank" rel="noopener" aria-label="WhatsApp"><i class="fa-brands fa-whatsapp"></i></a>
+        </div>
+      </div>
+      <div class="footer-col">
+        <h4>Shop</h4>
+        <ul>
+          <li><a href="#perfumes">Perfumes</a></li>
+          <li><a href="#watches">Watches</a></li>
+          <li><a href="#bracelets">Bracelets</a></li>
+          <li><a href="#wallets">Wallets</a></li>
+          <li><a href="#accessories">Accessories</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Information</h4>
+        <ul>
+          <li><a href="#contact">About Us</a></li>
+          <li><a href="#contact">Contact</a></li>
+          <li><a href="https://wa.me/923245483848" target="_blank" rel="noopener">Shipping</a></li>
+          <li><a href="https://wa.me/923245483848" target="_blank" rel="noopener">Order via WhatsApp</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Contact</h4>
+        <ul>
+          <li><a href="tel:03245483848">0324-5483848</a></li>
+          <li><a href="mailto:maliksaad9221@gmail.com">maliksaad9221@gmail.com</a></li>
+          <li><a href="https://www.instagram.com/saadhub.pk" target="_blank" rel="noopener">Instagram</a></li>
+          <li><a href="https://www.tiktok.com/@saadhub.pk" target="_blank" rel="noopener">TikTok</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span>© 2026 SAAD_HUB. All Rights Reserved.</span>
+      <span>Designed &amp; Developed by codewithzain.</span>
+    </div>
+  </div>
+</footer>
+
+<!-- ============ FLOATING WHATSAPP ============ -->
+<a class="wa-float" href="https://wa.me/923245483848" target="_blank" rel="noopener" aria-label="Chat with SAAD_HUB on WhatsApp">
+  <span class="tooltip">Chat with SAAD_HUB</span>
+  <i class="fa-brands fa-whatsapp"></i>
+</a>
+
+<!-- ============ SCROLL TO TOP ============ -->
+<button class="scroll-top" id="scrollTopBtn" aria-label="Scroll to top"><i class="fa-solid fa-arrow-up"></i></button>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+<script src="script.js"></script>
+</body>
+</html>
+<!-- 
+1. make look like a button
+2. change text color red on hover
+
+Cannot change html, only css.
+Look closely at
+-->  
+
+<div></div>
+<div></div>
+<div></div>
